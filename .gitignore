@@ -2,4 +2,5 @@
 *.bin
 /*.pdf
 .Makefile.swp
+*~
 bochsout.txt
