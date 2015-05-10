@@ -18,12 +18,10 @@ void main() {
   int x = 0;
   int y = 0;
   int color = 0;
-  int position;
   int i = 0;
   char *my_string = "Hello, Za Warudo!";
   
   clearScreen();
-  position = computePosition(x,y);
   for(i = 0; i < MAX_BIT_VALUE; i++){
       printString(my_string,i,x,y);
       y++;
