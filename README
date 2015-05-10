@@ -1,0 +1,6 @@
+Proyecto de Sistemas Operativos I
+Miguel C
+
+Operating System from scratch
+
+This program is to be run on a 16bit machine, the Makefile prepares it to run with bochs 2.3.7 or compatible simulator.
