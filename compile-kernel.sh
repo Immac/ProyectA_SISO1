@@ -1,1 +1,0 @@
-bcc -ansi -c -o kernel.o kernel.c

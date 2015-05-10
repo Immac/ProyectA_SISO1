@@ -1,1 +1,0 @@
-dd if=bootload of=floppya.img bs=512 count=1 conv=notrunc
