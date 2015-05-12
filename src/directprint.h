@@ -7,8 +7,12 @@
 #define VIDEO_ADDRESS_BASE 0x8000
 #define VIDEO_ADDRESS_SEGMENT 0xB000
 
-extern void putInMemory (int segment,int address,int character);
-extern int computePosition(int xCoordinate, int yCoordinate);
-extern void clearScreen(void);
-extern void printStringDirect(char *string,int color,int xCoordinate, int yCoordinate);
+extern void putInMemory(segment,address,character);
+int segment; int address; char character;
+extern void clearScreenDirect();
+extern void printStringDirect(string,color,xCoordinate,yCoordinate);
+char *string;int color;int xCoordinate; int yCoordinate;
+extern int computePosition(xCoordinate,yCoordinate);
+int xCoordinate; int yCoordinate;
+
 #endif //PRINT_STRING_DIRECT

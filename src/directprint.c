@@ -12,12 +12,14 @@ void printStringDirect(char *string,int color,int xCoordinate,int yCoordinate){
     }
 }
 
-void clearScreen(void) {
+void clearScreenDirect(void) {
     int i;
     int j;
     char *empty = " ";
-    for (i = 0 ; i < ROWS ; i++ ) {
-	for (j = 0; j < COLS ; j++ ) {
+    for (i = 0 ; i < ROWS ; i++ ) 
+    {
+	for (j = 0; j < COLS ; j++ ) 
+	{
 	    printStringDirect(empty,0,i,j);
 	}
     }

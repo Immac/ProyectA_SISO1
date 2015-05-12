@@ -1,12 +1,16 @@
 all: floppya.img
 run: all
 	bochs -f opsys.bxrc
-kernel.bin: kernel.o directprint.o kernel-asm.o 
+kernel.bin: kernel.o kernel-asm.o printchar.o screenutils.o directprint.o
 	ld86 -o $@ -d $^
-directprint.o: src/directprint.c
-	bcc -ansi -c -o $@ $^
 kernel.o: src/kernel.c 
 	bcc -ansi -c -o $@ $^
+screenutils.o: src/screenutils.c
+	bcc -ansi -c -o $@ $^
+directprint.o: src/directprint.c
+	bcc -ansi -c -o $@ $^
+printchar.o: src/printchar.asm
+	as86 $< -o $@
 kernel-asm.o: src/kernel.asm
 	as86 $< -o $@
 bootload.bin: src/bootload.asm
