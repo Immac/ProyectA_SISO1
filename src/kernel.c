@@ -1,22 +1,24 @@
 #include "screenutils.h"
 
+
 extern void hang(void);
-extern void printString(char *str);
+
 
 void main() {
 	char *str = "So nanoka?~";
+	char *enter = "\r\n";
+	char buffer[ROWS];
+
 	printString(str);
+	printString(enter);
+	
+	readString(buffer);
+	printString(enter);
+	printString(buffer);
+	
 	hang();
 }
 
 void hang(void) {
     while(1);
-}
-
-void printString(char *str) {
-	int i = 0;
-	while(str[i] != '\0') {
-		printChar(str[i]);
-		i++;
-	}
 }

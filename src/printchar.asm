@@ -2,6 +2,7 @@
 	.global _printChar
 	.global printString
 	.extern _printString
+
 _printChar:
 	push bp
 	mov bp,sp
