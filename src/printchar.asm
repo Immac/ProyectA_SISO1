@@ -1,5 +1,7 @@
 
 	.global _printChar
+	.global printString
+	.extern _printString
 _printChar:
 	push bp
 	mov bp,sp
@@ -9,3 +11,8 @@ _printChar:
 	pop bp
 	ret
 
+printString:
+	push bx
+	call #_printString
+	add sp, #0x2
+	ret

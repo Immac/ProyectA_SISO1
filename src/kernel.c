@@ -4,7 +4,7 @@ extern void hang(void);
 extern void printString(char *str);
 
 void main() {
-	char *str = "Hello";
+	char *str = "So nanoka?~";
 	printString(str);
 	hang();
 }
