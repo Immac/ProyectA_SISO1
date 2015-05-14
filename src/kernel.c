@@ -19,10 +19,10 @@ void main() {
 	printString(buffer);
 	*/
 	char buffer[512];
-	printString("started");
+	printString("So nanoka?~\r\n");
 	readSector(buffer,30);
 	printString(buffer);
-	printString("done");
+	printString("\r\ndone");
 	hang();
 }
 

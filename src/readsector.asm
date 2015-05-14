@@ -22,9 +22,9 @@ _readSector:
 	mov [bp - 6],ah ;[bp - 6] = head
 	mov ah,#0x2
 	mov al,#0x1
-	mov ch,[bp - 2]
-	mov cl,[bp - 4]
-	mov dh,[bp - 6]
+	mov ch,[bp - 2] ;track
+	mov cl,[bp - 4] ;relative sector
+	mov dh,[bp - 6] ; head
 	mov dl,#0 ; 0 is the floppy disk
 	int #0x13
 	add sp, #8
