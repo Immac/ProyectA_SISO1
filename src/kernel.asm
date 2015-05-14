@@ -5,6 +5,9 @@
 
 	.global _putInMemory
 	.global _makeInterrupt21
+	.extern _printString
+	.extern _readString
+	.extern _readSector
 ;	.global _interrupt
 ;	.extern _handleInterrupt21
 
@@ -66,14 +69,33 @@ _makeInterrupt21:
 ;it will call your function:
 ;void handleInterrupt21 (int AX, int BX, int CX, int DX)
 _interrupt21ServiceRoutine:
-;	push dx
-;	push cx
-;	push bx
-;	push ax
-;	call _handleInterrupt21
-;	pop ax
-;	pop bx
-;	pop cx
-;	pop dx
-
-;	iret
+	cmp ax,#0
+	je call_printString
+	cmp ax,#1
+	je call_readString
+	cmp ax,#2
+	je call_readSector
+	call call_unknown_service_error
+	
+call_printString:
+	push bx
+	call _printString
+	add sp, #0x2
+	jmp finished
+call_readString:
+	push cx
+	push bx
+	call _readString
+	add sp, #4
+	jmp finished
+call_readSector:
+	push cx
+	push bx
+	call _readSector
+	add sp, #4
+	jmp finished
+call_unknown_service_error:
+	;call _unknown_service_error
+	jmp finished
+finished:
+	iret
