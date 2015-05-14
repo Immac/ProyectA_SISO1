@@ -1,8 +1,9 @@
 #include "screenutils.h"
 
-
 extern void hang(void);
 extern void readSector(bufferm,sector);
+extern void makeInterrupt21(void);
+extern void loadProgram(void);
 char *buffer; int sector;
 
 void main() {
@@ -18,11 +19,14 @@ void main() {
 	printString(enter);
 	printString(buffer);
 	*/
+	/*
 	char buffer[512];
 	printString("So nanoka?~\r\n");
 	readSector(buffer,30);
 	printString(buffer);
-	printString("\r\ndone");
+	printString("\r\n done");*/
+	makeInterrupt21();
+	loadProgram();
 	hang();
 }
 
